@@ -1,10 +1,10 @@
 #pragma once
 #include "core.h"
 #include "Log.h"
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Hazel/Events/Event.h"
+#include "Hazel/Events/ApplicationEvent.h"
 #include "Window.h"
-#include "Hazel/LayerStack.h"
+#include "Hazel/Core/LayerStack.h"
 
 #include "Hazel/ImGui/ImGuiLayer.h"
 #include "Hazel/Core/Timestep.h"
@@ -29,12 +29,14 @@ namespace Hazel {
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnWindowResize(WindowResizeEvent& e);
 
 	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 
 		bool m_Running = true;
+		bool m_Minized = false;
 		LayerStack m_layerStack;
 		unsigned int length;
 		float m_LastFrametime;
