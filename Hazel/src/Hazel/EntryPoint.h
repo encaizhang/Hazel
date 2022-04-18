@@ -5,8 +5,10 @@
 
 extern Hazel::Application* Hazel::CreateApplication();
 
-void main() {
-	printf("hello, welcome");
+int main(int argc, char** argv) {
+	Hazel::Log::Init();
+	HZ_CORE_ERROR("Hello!");
+
 	auto app = Hazel::CreateApplication();
 	app->run();
 	delete app;
