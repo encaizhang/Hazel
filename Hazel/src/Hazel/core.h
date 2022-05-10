@@ -1,11 +1,16 @@
 #pragma once
 
+//#define HZ_ENABLE_ASSERTS
 #ifdef HZ_PLATFORM_WINDOWS
+#if HZ_DYNAMIC_LINK
 	#ifdef HZ_BUILD_DLL
 		#define HAZEL_API_  __declspec(dllexport)
 	#else
 		#define HAZEL_API_  __declspec(dllimport)
 	#endif
+#else
+	#define HAZEL_API_
+#endif
 #else
 	#error Hazel only support Windows!
 #endif

@@ -2,6 +2,7 @@
 
 #include "Hazel/Window.h"
 #include "Hazel/Log.h"
+#include "Hazel/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
 namespace Hazel {
@@ -31,6 +32,7 @@ namespace Hazel {
 		virtual void shutdown();
 	private:
 		GLFWwindow* m_window;
+		GraphicsContext* m_context;
 
 		struct WindowData 
 		{
